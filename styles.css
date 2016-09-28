@@ -1,0 +1,11 @@
+.quiz-current-key{
+    text-align:center;
+}
+
+.quiz-code{
+    font-family:monospace;
+    padding:3px;
+    border:1px solid gray;
+    border-radius:8px;
+    font-size:16px;
+}
