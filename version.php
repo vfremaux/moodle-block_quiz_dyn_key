@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information for the block_quiz_results plugin.
+ * Version details.
  *
  * @package    block_quiz_dyn_key
  * @categpory  blocks
@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2015032200;        // The current plugin version (Date: YYYYMMDDXX)
-$plugin->requires  = 2016051900;        // Requires this Moodle version
-$plugin->component = 'block_quiz_dyn_key'; // Full name of the plugin (used for diagnostics)
+$plugin->version   = 2015032200;        // The current plugin version (Date: YYYYMMDDXX).
+$plugin->requires  = 2016051900;        // Requires this Moodle version.
+$plugin->component = 'block_quiz_dyn_key'; // Full name of the plugin (used for diagnostics).
 $plugin->release = "3.1.0 (Build 2015032200)";
 $plugin->dependencies = array('mod_quiz' => 2013050100);
 
