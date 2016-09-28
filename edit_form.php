@@ -15,16 +15,16 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Defines the form for editing Quiz results block instances.
+ *
+ * @package   moodlecore
+ * @copyright 2009 Tim Hunt
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 defined('MOODLE_INTERNAL') || die();
 
-/**
- * Defines the form for editing Quiz dynamic keying block instances.
- *
- * @package    block_quiz_dyn_key
- * @category   blocks
- * @copyright  2015 Valery Fremaux (valery.fremaux@gmail.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 
 /**
  * Form for editing Quiz results block instances.

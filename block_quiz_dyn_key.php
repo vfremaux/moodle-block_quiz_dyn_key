@@ -17,9 +17,9 @@
 /**
  * Classes to enforce the various access rules that can apply to a quiz.
  *
- * @package    block_quiz_dyn_key
- * @category   blocks
- * @copyright  2015 Valery Fremaux (valery.fremaux@gmail.com)
+ * @package    block
+ * @subpackage quiz_dyn_key
+ * @copyright  2009 Tim Hunt
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
