@@ -40,11 +40,11 @@ require_once($CFG->dirroot . '/mod/quiz/lib.php');
  */
 
 class block_quiz_dyn_key extends block_base {
-    function init() {
+    public function init() {
         $this->title = get_string('pluginname', 'block_quiz_dyn_key');
     }
 
-    function applicable_formats() {
+    public function applicable_formats() {
         return array('course' => true, 'mod-quiz' => true);
     }
 
@@ -54,33 +54,38 @@ class block_quiz_dyn_key extends block_base {
      * @return integer the quiz id.
      */
     public function get_owning_quiz() {
+
         if (empty($this->instance->parentcontextid)) {
             return 0;
         }
+
         $parentcontext = context::instance_by_id($this->instance->parentcontextid);
         if ($parentcontext->contextlevel != CONTEXT_MODULE) {
             return 0;
         }
+
         $cm = get_coursemodule_from_id('quiz', $parentcontext->instanceid);
+
         if (!$cm) {
             return 0;
         }
+
         return $cm->instance;
     }
 
-    function instance_config_save($data, $nolongerused = false) {
+    public function instance_config_save($data, $nolongerused = false) {
         if (empty($data->quizid)) {
             $data->quizid = $this->get_owning_quiz();
         }
         parent::instance_config_save($data);
     }
 
-    function get_content() {
+    public function get_content() {
         global $USER, $CFG, $DB, $COURSE;
 
         $context = context_block::instance($this->instance->id);
 
-        if ($this->content !== NULL) {
+        if ($this->content !== null) {
             return $this->content;
         }
 
@@ -91,7 +96,7 @@ class block_quiz_dyn_key extends block_base {
         if (empty($this->instance)) {
             return $this->content;
         }
-        
+
         if (!has_capability('block/quiz_dyn_key:getcode', $context)) {
             return $this->content;
         }
@@ -120,12 +125,13 @@ class block_quiz_dyn_key extends block_base {
             $a = new StdClass();
             $a->password = $quiz->password;
             $a->quizname = $quiz->name;
-            $this->content->text = '<div class="quiz-current-key">'.get_string('quizcurrentcode', 'block_quiz_dyn_key', $a).'</div>';
+            $keytxt = get_string('quizcurrentcode', 'block_quiz_dyn_key', $a);
+            $this->content->text = '<div class="quiz-current-key">'.$keytxt.'</div>';
         } else {
             $quizid = 0;
         }
 
-        // TODO : display code to designated customer
+        // TODO : display code to designated customer.
 
         if (empty($quizid)) {
             $this->content->text = get_string('error_emptyquizid', 'block_quiz_dyn_key');
@@ -137,9 +143,8 @@ class block_quiz_dyn_key extends block_base {
 
     /**
      * Cron process will change regularily the access code depending on settings
-     *
      */
-    function cron() {
+    public function cron() {
         global $SITE, $DB;
 
         $debug = optional_param('forcequizdynkeydebug', false, PARAM_BOOL);
@@ -170,7 +175,7 @@ class block_quiz_dyn_key extends block_base {
                 }
 
                 if (empty($instance->config->cando) && !$debug) {
-                    // yet still not the time
+                    // Yet still not the time.
                     return;
                 }
 
@@ -187,7 +192,7 @@ class block_quiz_dyn_key extends block_base {
                     return;
                 }
 
-                // Now it could be a good day, is this the good time
+                // Now it could be a good day, is this the good time.
 
                 $quiz = $DB->get_record('quiz', array('id' => $instance->config->quizid));
                 $quiz->password = $instance->generate_password();
@@ -197,7 +202,8 @@ class block_quiz_dyn_key extends block_base {
 
                 // Notify users.
                 if (!empty($instance->config->notifychanges)) {
-                    $notifyusers = get_users_by_capability($blockcontext, 'block/quiz_dyn_key:getcode', 'u.id, u.firstname, u.lastname');
+                    $fields = 'u.id,'.get_all_user_name_fields(true, 'u');
+                    $notifyusers = get_users_by_capability($blockcontext, 'block/quiz_dyn_key:getcode', $fields);
                     foreach ($notifyusers as $u) {
                         $u->password = $quiz->password;
                         $user = $DB->get_record('user', array('id' => $u->id));
@@ -213,12 +219,12 @@ class block_quiz_dyn_key extends block_base {
             }
         }
     }
-    
+
     /**
      * generates a configurable length and charset password.
      * @return a password string
      */
-    function generate_password() {
+    public function generate_password() {
         $set1 = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '0');
         $set2 = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
         $set3 = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
@@ -250,8 +256,7 @@ class block_quiz_dyn_key extends block_base {
         return $pass;
     }
 
-    function instance_allow_multiple() {
+    public function instance_allow_multiple() {
         return true;
     }
 }
-
