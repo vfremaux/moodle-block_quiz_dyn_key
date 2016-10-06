@@ -187,7 +187,8 @@ class block_quiz_dyn_key extends block_base {
                     return;
                 }
 
-                if ((date('G', $now) * 60 + date('i', $now)) < ($instance->config->keychangehour * 60 + $instance->config->keychangemins) && !$debug) {
+                $confighour = ($instance->config->keychangehour * 60 + $instance->config->keychangemins);
+                if (((date('G', $now) * 60 + date('i', $now)) < $confighour) && !$debug) {
                     // Not yet the good time.
                     return;
                 }
