@@ -27,7 +27,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->version   = 2015032200;        // The current plugin version (Date: YYYYMMDDXX).
-$plugin->requires  = 2013051400;        // Requires this Moodle version.
+$plugin->requires  = 2014110400;        // Requires this Moodle version.
 $plugin->component = 'block_quiz_dyn_key'; // Full name of the plugin (used for diagnostics).
 $plugin->release = '2.8.0 (Build 2015032200)';
 $plugin->dependencies = array('mod_quiz' => 2013050100);

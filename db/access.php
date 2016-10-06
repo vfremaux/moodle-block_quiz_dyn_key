@@ -17,13 +17,13 @@
 /**
  * Progress Bar capability setup
  *
- * @package    contrib
- * @subpackage block_quiz_dyn_key
- * @copyright  2010 Valery Fremaux
+ * @package    block_quiz_dyn_key
+ * @category   blocks
+ * @copyright  2010 Valery Fremaux <valery.fremaux@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') or die("Direct access to this location is not allowed.");
+defined('MOODLE_INTERNAL') || die();
 
 $capabilities = array (
     'block/quiz_dyn_key:addinstance' => array(
