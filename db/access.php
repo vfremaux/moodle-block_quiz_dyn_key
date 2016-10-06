@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Progress Bar capability setup
  *
@@ -24,6 +22,8 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  2010 Valery Fremaux <valery.fremaux@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
 
 $capabilities = array (
     'block/quiz_dyn_key:addinstance' => array(
