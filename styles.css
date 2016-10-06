@@ -3,9 +3,9 @@
 }
 
 .quiz-code{
-    font-family:monospace;
-    padding:3px;
-    border:1px solid gray;
     border-radius:8px;
+    border:1px solid gray;
+    font-family:monospace;
     font-size:16px;
+    padding:3px;
 }
