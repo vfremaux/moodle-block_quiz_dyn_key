@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -45,19 +44,19 @@ $string['error_emptyquizid'] = 'This block has not yet been configured.';
 $string['quizcurrentcode'] = 'Current for quiz:<br/><b>{$a->quizname}</b><br/><div class="quiz-code">{$a->password}</div>';
 
 $string['confignotifymail'] = '
-    Dear {$a->firstname} {$a->lastname},
-    
-    The access password to the quiz {$a->quizname} in 
-    course {$a->coursename} has changed. 
-    
-    the code is now {$a->quizpassword} until next change notification.
+Dear {$a->firstname} {$a->lastname},
+
+The access password to the quiz {$a->quizname} in 
+course {$a->coursename} has changed. 
+
+the code is now {$a->quizpassword} until next change notification.
 ';
 
 $string['confignotifyhtmlmail'] = '
-    <p>Dear {$a->firstname} {$a->lastname},</p>
-    
-    <p>The access password to the quiz {$a->quizname} in 
-    course {$a->coursename} has changed. </p>
-    
-    <b>the code is now <b>{$a->quizpassword}</b> until next change notification.</p>
+<p>Dear {$a->firstname} {$a->lastname},</p>
+
+<p>The access password to the quiz {$a->quizname} in 
+course {$a->coursename} has changed. </p>
+
+<b>the code is now <b>{$a->quizpassword}</b> until next change notification.</p>
 ';
