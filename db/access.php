@@ -39,7 +39,7 @@ $capabilities = array (
 
     'block/quiz_dyn_key:getcode' => array(
         'riskbitmask' => RISK_SPAM | RISK_XSS,
-    
+
         'captype' => 'write',
         'contextlevel' => CONTEXT_BLOCK,
         'archetypes' => array(
@@ -50,7 +50,7 @@ $capabilities = array (
 
     'block/quiz_dyn_key:changecode' => array(
         'riskbitmask' => RISK_SPAM | RISK_XSS,
-    
+
         'captype' => 'write',
         'contextlevel' => CONTEXT_BLOCK,
         'archetypes' => array(
