@@ -32,13 +32,7 @@ require_once($CFG->dirroot . '/mod/quiz/lib.php');
  *
  * This block can be added to a course page or a quiz page to display of list of
  * the best/worst students/groups in a particular quiz.
- *
- * @package    block
- * @subpackage quiz_dyn_key
- * @copyright  2014 Valery Fremaux
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class block_quiz_dyn_key extends block_base {
     public function init() {
         $this->title = get_string('pluginname', 'block_quiz_dyn_key');
@@ -81,7 +75,7 @@ class block_quiz_dyn_key extends block_base {
     }
 
     public function get_content() {
-        global $USER, $CFG, $DB, $COURSE;
+        global $DB, $COURSE;
 
         $context = context_block::instance($this->instance->id);
 
@@ -152,7 +146,7 @@ class block_quiz_dyn_key extends block_base {
         if ($allquizdynkeys = $DB->get_records('block_instances', array('blockname' => 'quiz_dyn_key'))) {
             foreach ($allquizdynkeys as $qdk) {
 
-                $instance = block_instance('dashboard', $qdk);
+                $instance = block_instance('quiz_dyn_key', $qdk);
 
                 if (empty($instance->config->quizid)) {
                     return;
@@ -187,8 +181,8 @@ class block_quiz_dyn_key extends block_base {
                     return;
                 }
 
-                $confighour = ($instance->config->keychangehour * 60 + $instance->config->keychangemins);
-                if (((date('G', $now) * 60 + date('i', $now)) < $confighour) && !$debug) {
+                $configtime = ($instance->config->keychangehour * 60 + $instance->config->keychangemins);
+                if ((date('G', $now) * 60 + date('i', $now)) < $configtime && !$debug) {
                     // Not yet the good time.
                     return;
                 }
@@ -204,6 +198,7 @@ class block_quiz_dyn_key extends block_base {
                 // Notify users.
                 if (!empty($instance->config->notifychanges)) {
                     $fields = 'u.id,'.get_all_user_name_fields(true, 'u');
+                    $blockcontext = context_block::instance($instance->instance->id);
                     $notifyusers = get_users_by_capability($blockcontext, 'block/quiz_dyn_key:getcode', $fields);
                     foreach ($notifyusers as $u) {
                         $u->password = $quiz->password;
