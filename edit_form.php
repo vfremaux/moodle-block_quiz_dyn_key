@@ -17,10 +17,10 @@
 /**
  * Defines the form for editing Quiz dynamic keying block instances.
  *
- * @package    block_quiz_dyn_key
- * @category   blocks
- * @copyright  2015 Valery Fremaux (valery.fremaux@gmail.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     block_quiz_dyn_key
+ * @category    blocks
+ * @copyright   2015 Valery Fremaux (valery.fremaux@gmail.com)
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
 
