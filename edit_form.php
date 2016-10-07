@@ -17,10 +17,10 @@
 /**
  * Defines the form for editing Quiz dynamic keying block instances.
  *
- * @package    block_quiz_dyn_key
- * @category   blocks
- * @copyright  2015 Valery Fremaux (valery.fremaux@gmail.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     block_quiz_dyn_key
+ * @category    blocks
+ * @copyright   2015 Valery Fremaux (valery.fremaux@gmail.com)
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
 
@@ -42,7 +42,7 @@ class block_quiz_dyn_key_edit_form extends block_edit_form {
             $quizzes = $DB->get_records_menu('quiz', array('course' => $this->page->course->id), '', 'id, name');
             if (empty($quizzes)) {
                 $label = get_string('config_select_quiz', 'block_quiz_dyn_key');
-                $desc = get_string('config_no_quizzes_in_course';
+                $desc = get_string('config_no_quizzes_in_course');
                 $mform->addElement('static', 'noquizzeswarning', $label, $desc, 'block_quiz_dyn_key'));
             } else {
                 foreach ($quizzes as $id => $name) {
