@@ -43,7 +43,7 @@ class block_quiz_dyn_key_edit_form extends block_edit_form {
             if (empty($quizzes)) {
                 $label = get_string('config_select_quiz', 'block_quiz_dyn_key');
                 $desc = get_string('config_no_quizzes_in_course');
-                $mform->addElement('static', 'noquizzeswarning', $label, $desc, 'block_quiz_dyn_key'));
+                $mform->addElement('static', 'noquizzeswarning', $label, $desc, 'block_quiz_dyn_key');
             } else {
                 foreach ($quizzes as $id => $name) {
                     $quizzes[$id] = strip_tags(format_string($name));
