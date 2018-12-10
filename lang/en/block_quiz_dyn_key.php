@@ -27,6 +27,9 @@ $string['quiz_dyn_key:addinstance'] = 'Add a new Quiz Dynamic Key block';
 $string['quiz_dyn_key:getcode'] = 'Can see the current code';
 $string['quiz_dyn_key:changecode'] = 'Can change interactively the current code';
 
+// Privacy.
+$string['privacy:metadata'] = 'The Quiz Dyn Key block does not directly store any personal data about any user.';
+
 $string['config_cronenable'] = 'Enable cron key change';
 $string['config_notifychanges'] = 'Notify key changes';
 $string['config_keychangedays'] = 'Key rotation days';

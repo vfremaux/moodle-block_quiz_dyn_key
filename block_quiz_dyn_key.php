@@ -191,7 +191,7 @@ class block_quiz_dyn_key extends block_base {
 
                 $quiz = $DB->get_record('quiz', array('id' => $instance->config->quizid));
                 $quiz->password = $instance->generate_password();
-                $DB->set_field('quiz', 'password', $quiz->password);
+                $DB->set_field('quiz', 'password', $quiz->password, array('id' => $instance->config->quizid));
 
                 $adminuser = get_admin();
 
