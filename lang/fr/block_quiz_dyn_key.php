@@ -27,6 +27,9 @@ $string['quiz_dyn_key:addinstance'] = 'Peut ajouter un bloc de rotation des clef
 $string['quiz_dyn_key:getcode'] = 'Peut afficher le code d\'accès';
 $string['quiz_dyn_key:changecode'] = 'Peut changer interactivement le code en cours';
 
+// Privacy.
+$string['privacy:metadata'] = 'Le bloc Rotation des Clefs de Quiz ne détient directement aucune donnée relative aux utilisateurs.';
+
 $string['config_cronenable'] = 'Activer la rotation des codes d\'accès';
 $string['config_notifychanges'] = 'Notifier les codes d\'accès lors du changement';
 $string['config_keychangedays'] = 'Jours de rotation';
