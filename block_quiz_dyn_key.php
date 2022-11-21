@@ -197,7 +197,9 @@ class block_quiz_dyn_key extends block_base {
 
                 // Notify users.
                 if (!empty($instance->config->notifychanges)) {
-                    $fields = 'u.id,'.get_all_user_name_fields(true, 'u');
+                    // M4.
+                    $fields = \core_user\fields::for_name()->with_userpic()->excluding('id')->get_required_fields();
+                    $fields = 'u.id,'.implode(',', $fields);
                     $blockcontext = context_block::instance($instance->instance->id);
                     $notifyusers = get_users_by_capability($blockcontext, 'block/quiz_dyn_key:getcode', $fields);
                     foreach ($notifyusers as $u) {
